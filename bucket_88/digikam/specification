@@ -1,0 +1,87 @@
+DEF[PORTVERSION]=	8.7.0
+# ----------------------------------------------------------------------------
+
+NAMEBASE=		digikam
+VERSION=		${PORTVERSION}
+KEYWORDS=		graphics
+VARIANTS=		std
+SDESC[std]=		KDE digital photo management application
+HOMEPAGE=		https://www.digikam.org/
+CONTACT=		Michael_Neumann[mneumann@ntecs.de]
+
+DOWNLOAD_GROUPS=	main
+SITES[main]=		https://download.kde.org/stable/digikam/${PORTVERSION}/
+DISTFILE[1]=		digiKam-${PORTVERSION}.tar.xz:main
+
+SPKGS[std]=		set primary docs nls
+
+OPTIONS_AVAILABLE=	none
+OPTIONS_STANDARD=	none
+
+LICENSE=		GPLv2+:primary
+LICENSE_FILE=		GPLv2+:{{WRKSRC}}/LICENSES/GPL-2.0-or-later.txt
+LICENSE_TERMS=		primary:{{WRKDIR}}/TERMS
+LICENSE_SOURCE=		TERMS:{{WRKSRC}}/main.cpp
+LICENSE_AWK=		TERMS:"^.include"
+LICENSE_SCHEME=		solo
+
+FPC_EQUIVALENT=		graphics/digikam
+
+BUILD_DEPENDS=		qt6-qtbase:dev:std
+			qt6-qtsvg:dev:std
+			qt6-qtdeclarative:dev:std
+			kf6-extra-cmake-modules:set:std
+			kf6-kcompletion:dev:std
+			kf6-kconfig:dev:std
+			kf6-kcoreaddons:dev:std
+			kf6-ki18n:dev:std
+			kf6-kiconthemes:dev:std
+			kf6-kjobwidgets:dev:std
+			kf6-kio:dev:std
+			kf6-ktextwidgets:dev:std
+			kf6-kxmlgui:dev:std
+			kf6-kwidgetsaddons:dev:std
+			kf6-solid:dev:std
+			kf6-sonnet:dev:std
+			kf6-kwindowsystem:dev:std
+			kf6-kconfigwidgets:dev:std
+			kf6-kservice:dev:std
+			kf6-kcolorscheme:dev:std
+			kf6-kdoctools:dev:std
+			exiv2:dev:std
+			xorg-ice:dev:std
+			boost-libraries:set:std
+			eigen:single:std
+
+BUILDRUN_DEPENDS=	qt6-qtbase:primary:std
+			qt6-qtsvg:primary:std
+			qt6-qtdeclarative:primary:std
+			kf6-kcompletion:primary:std
+			kf6-kconfig:primary:std
+			kf6-kcoreaddons:primary:std
+			kf6-ki18n:primary:std
+			kf6-kiconthemes:primary:std
+			kf6-kjobwidgets:primary:std
+			kf6-kio:primary:std
+			kf6-ktextwidgets:primary:std
+			kf6-kxmlgui:primary:std
+			kf6-kwidgetsaddons:primary:std
+			kf6-solid:primary:std
+			kf6-sonnet:primary:std
+			kf6-kwindowsystem:primary:std
+			kf6-kconfigwidgets:primary:std
+			kf6-kservice:primary:std
+			kf6-kcolorscheme:primary:std
+			kf6-kdoctools:primary:std
+			exiv2:primary:std
+
+USES=			cmake bison qt6 desktop-utils:primary ninja
+			pkgconfig gettext
+			c++:primary
+			jpeg tiff sqlite shebangfix
+
+XORG_COMPONENTS=	x11
+
+# CMAKE_ARGS=		-DCMAKE_PREFIX_PATH:PATH="{{PREFIX}}/lib/qt6/cmake/"
+# MAKE_ARGS=		DESTDIR="{{STAGEDIR}}"
+
