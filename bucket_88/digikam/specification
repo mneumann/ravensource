@@ -18,11 +18,11 @@ SPKGS[std]=		set primary docs nls
 OPTIONS_AVAILABLE=	none
 OPTIONS_STANDARD=	none
 
-LICENSE=		GPLv2+:primary
-LICENSE_FILE=		GPLv2+:{{WRKSRC}}/LICENSES/GPL-2.0-or-later.txt
-LICENSE_TERMS=		primary:{{WRKDIR}}/TERMS
-LICENSE_SOURCE=		TERMS:{{WRKSRC}}/main.cpp
-LICENSE_AWK=		TERMS:"^.include"
+LICENSE=		GPLv2:primary
+LICENSE_FILE=		GPLv2:{{WRKSRC}}/COPYING
+# LICENSE_TERMS=		primary:{{WRKDIR}}/TERMS
+# LICENSE_SOURCE=		TERMS:{{WRKSRC}}/main.cpp
+# LICENSE_AWK=		TERMS:"^.include"
 LICENSE_SCHEME=		solo
 
 FPC_EQUIVALENT=		graphics/digikam
@@ -75,7 +75,7 @@ BUILDRUN_DEPENDS=	qt6-qtbase:primary:std
 			kf6-kdoctools:primary:std
 			exiv2:primary:std
 
-USES=			cmake bison qt6 desktop-utils:primary ninja
+USES=			qt6 cmake bison desktop-utils:primary ninja
 			pkgconfig gettext
 			c++:primary
 			jpeg tiff sqlite shebangfix
@@ -85,3 +85,7 @@ XORG_COMPONENTS=	x11
 # CMAKE_ARGS=		-DCMAKE_PREFIX_PATH:PATH="{{PREFIX}}/lib/qt6/cmake/"
 # MAKE_ARGS=		DESTDIR="{{STAGEDIR}}"
 
+# Qt6NetworkAuth
+CMAKE_ARGS=		-DBUILD_TESTING=OFF
+			-DBUILD_WITH_QT6=ON
+			-DCMAKE_PREFIX_PATH:PATH="{{PREFIX}}/lib/qt6/cmake"
