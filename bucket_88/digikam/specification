@@ -20,16 +20,19 @@ OPTIONS_STANDARD=	none
 
 LICENSE=		GPLv2:primary
 LICENSE_FILE=		GPLv2:{{WRKSRC}}/COPYING
-# LICENSE_TERMS=		primary:{{WRKDIR}}/TERMS
-# LICENSE_SOURCE=		TERMS:{{WRKSRC}}/main.cpp
-# LICENSE_AWK=		TERMS:"^.include"
 LICENSE_SCHEME=		solo
 
+
 FPC_EQUIVALENT=		graphics/digikam
+
+# TODO: digikam depends on QtWebEngine.
+# FreeBSD ports: www/qt6-webengine.
+# That's just another chromium! No thank you!
 
 BUILD_DEPENDS=		qt6-qtbase:dev:std
 			qt6-qtsvg:dev:std
 			qt6-qtdeclarative:dev:std
+			qt6-qtnetworkauth:dev:std
 			kf6-extra-cmake-modules:set:std
 			kf6-kcompletion:dev:std
 			kf6-kconfig:dev:std
@@ -56,6 +59,7 @@ BUILD_DEPENDS=		qt6-qtbase:dev:std
 BUILDRUN_DEPENDS=	qt6-qtbase:primary:std
 			qt6-qtsvg:primary:std
 			qt6-qtdeclarative:primary:std
+			qt6-qtnetworkauth:primary:std
 			kf6-kcompletion:primary:std
 			kf6-kconfig:primary:std
 			kf6-kcoreaddons:primary:std
@@ -82,10 +86,8 @@ USES=			qt6 cmake bison desktop-utils:primary ninja
 
 XORG_COMPONENTS=	x11
 
-# CMAKE_ARGS=		-DCMAKE_PREFIX_PATH:PATH="{{PREFIX}}/lib/qt6/cmake/"
-# MAKE_ARGS=		DESTDIR="{{STAGEDIR}}"
 
-# Qt6NetworkAuth
 CMAKE_ARGS=		-DBUILD_TESTING=OFF
 			-DBUILD_WITH_QT6=ON
+			-DENABLE_QWEBENGINE=OFF
 			-DCMAKE_PREFIX_PATH:PATH="{{PREFIX}}/lib/qt6/cmake"
