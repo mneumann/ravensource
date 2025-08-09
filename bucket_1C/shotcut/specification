@@ -1,0 +1,29 @@
+DEF[PORTVERSION]=	25.07.26
+# ----------------------------------------------------------------------------
+
+NAMEBASE=		shotcut
+VERSION=		${PORTVERSION}
+KEYWORDS=		multimedia
+VARIANTS=		std
+SDESC[std]=		Free, open source, cross-platform video editor
+HOMEPAGE=		https://shotcut.org/
+CONTACT=		nobody
+
+DOWNLOAD_GROUPS=	main
+SITES[main]=		GITHUB/mltframework:shotcut:v${PORTVERSION}
+DISTFILE[1]=		generated:main
+
+SPKGS[std]=		set primary man
+
+OPTIONS_AVAILABLE=	none
+OPTIONS_STANDARD=	none
+
+# LICENSE=		GPLv3:primary
+
+FPC_EQUIVALENT=		multimedia/shotcut
+
+RUN_DEPENDS=		ffmpeg:primary:std
+
+USES=			cmake compiler:primary cpe pkgconfig qt5
+
+CPE_VENDOR=		meltytech
