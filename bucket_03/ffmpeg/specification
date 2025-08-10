@@ -11,6 +11,7 @@ DEF[SO_SCALE]=		8.3.100
 
 NAMEBASE=		ffmpeg
 VERSION=		${PORTVERSION}
+REVISION=		1
 KEYWORDS=		multimedia audio net
 VARIANTS=		std
 SDESC[std]=		Play, record, convert, and stream audio and video
@@ -74,6 +75,11 @@ BUILD_DEPENDS=		libdrm:dev:std
 			xvid:dev:std
 			libtheora:dev:std
 			libvdpau:dev:std
+			video4linux:dev:std
+			xorg-xcb:dev:std
+			zeromq:dev:std
+			libsodium:dev:std
+			linux-api-headers:single:std
 BUILDRUN_DEPENDS=	gmp:primary:std
 			libass:primary:std
 			frei0r:primary:std
@@ -90,6 +96,10 @@ BUILDRUN_DEPENDS=	gmp:primary:std
 			x264:primary:std
 			x265:primary:std
 			xvid:primary:std
+			video4linux:primary:std
+			xorg-xcb:primary:std
+			zeromq:primary:std
+			libsodium:primary:std
 
 EXRUN[tools]=		primary
 
@@ -155,15 +165,15 @@ CONFIGURE_ARGS=		--cc="{{CC}}"
 			--disable-libtwolame
 			--disable-libvo-amrwbenc
 			--disable-libvidstab
-			--disable-libxcb
+			--enable-libxcb
 			--disable-outdev=xv
 			--disable-libzimg
-			--disable-libzmq
+			--enable-libzmq
 			--disable-libzvbi
 			--disable-libmysofa
-			--disable-libv4l2
-			--disable-indev=v4l2
-			--disable-outdev=v4l2
+			--enable-libv4l2
+			--enable-indev=v4l2
+			--enable-outdev=v4l2
 			--enable-libass
 			--enable-fontconfig
 			--enable-libfreetype
