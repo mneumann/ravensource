@@ -79,7 +79,6 @@ BUILD_DEPENDS=		libdrm:dev:std
 			xorg-xcb:dev:std
 			zeromq:dev:std
 			libsodium:dev:std
-			linux-api-headers:single:std
 BUILDRUN_DEPENDS=	gmp:primary:std
 			libass:primary:std
 			frei0r:primary:std
@@ -227,6 +226,16 @@ post-patch-sunos:
 	${REINPLACE_CMD} -e '/^enabled libxvid/ s/$$/ -lrt/' \
 		-e '/append SHFLAGS.*version_script/d' \
 		${WRKSRC}/configure
+
+post-patch-dragonfly:
+	# XXX: move into v4l-compat-header
+	${MKDIR} -p ${PREFIX}/include/linux
+	${CP} ${FILESDIR}/videodev2.h ${PREFIX}/include/linux
+
+post-build-dragonfly:
+	${RM} ${PREFIX}/include/linux/videodev2.h
+	${RMDIR} ${PREFIX}/include/linux || true
+	${RMDIR} ${PREFIX}/include || true
 
 post-install:
 	@${MKDIR} ${STAGEDIR}${STD_DOCDIR}
