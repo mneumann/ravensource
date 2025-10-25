@@ -14,6 +14,9 @@
 %%X86_DRIVERS-OFF%%lib/dri/vmwgfx_dri.so
 %%X86_DRIVERS-ON%%lib/dri/crocus_dri.so
 %%X86_DRIVERS-ON%%lib/dri/i915_dri.so
+lib/libEGL_mesa.so
+lib/libEGL_mesa.so.0
+lib/libEGL_mesa.so.0.0.0
 lib/libgallium-%%SOVERSION%%.so
 lib/libgbm.so.1
 lib/libgbm.so.1.0.0
@@ -31,3 +34,4 @@ lib/vdpau/libvdpau_nouveau.so.1.0.0
 lib/vdpau/libvdpau_virtio_gpu.so.1
 lib/vdpau/libvdpau_virtio_gpu.so.1.0
 lib/vdpau/libvdpau_virtio_gpu.so.1.0.0
+share/glvnd/egl_vendor.d/50_mesa.json

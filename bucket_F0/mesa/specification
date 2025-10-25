@@ -77,7 +77,7 @@ MESON_ARGS=		-Dplatforms=x11{{WAYPLAT}}
 			-Dgles2=disabled
 			-Dglx=auto
 			-Dopengl=true
-			-Degl=disabled
+			-Degl=true
 			-Dvulkan-drivers={{VULKAN_DRIVERS:tW:tl:C/[[:space:]]/,/g}}
 
 # There are issues that need to be fixed to use TLS model "initial-exec"

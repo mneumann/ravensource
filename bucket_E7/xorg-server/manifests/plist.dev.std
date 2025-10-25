@@ -44,6 +44,7 @@ include/xorg/gc.h
 include/xorg/gcstruct.h
 include/xorg/geext.h
 include/xorg/geint.h
+include/xorg/glamor.h
 include/xorg/globals.h
 include/xorg/glx_extinit.h
 include/xorg/glxvndabi.h

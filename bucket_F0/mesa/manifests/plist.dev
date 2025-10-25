@@ -2,6 +2,8 @@ include/gbm_backend_abi.h
 %%LLVMPIPE-ON%%lib/libMesaOpenCL.so
 %%LLVMPIPE-ON%%lib/vdpau/libvdpau_r600.so
 %%LLVMPIPE-ON%%lib/vdpau/libvdpau_radeonsi.so
+include/EGL/eglext_angle.h
+include/EGL/eglmesaext.h
 include/gbm.h
 include/GL/internal/dri_interface.h
 lib/libgbm.so

@@ -4,12 +4,12 @@
      modesettingPtr ms = modesettingPTR(pScrn);
      const char *accel_method_str = xf86GetOptValString(ms->drmmode.Options,
                                                         OPTION_ACCEL_METHOD);
-+#if defined(__DragonFly__)
-+    Bool do_glamor = (accel_method_str && strcmp(accel_method_str, "glamor") == 0);
-+#else
-     Bool do_glamor = (!accel_method_str ||
++//#if defined(__DragonFly__)
++//    Bool do_glamor = FALSE;
++//#else
+     Bool do_glamor = (accel_method_str &&
                        strcmp(accel_method_str, "glamor") == 0);
-+#endif
++//#endif
  
      ms->drmmode.glamor = FALSE;
  

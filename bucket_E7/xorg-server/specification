@@ -60,7 +60,7 @@ XORG_COMPONENTS=	xorgproto xtransproto
 CPE_VENDOR=		x.org
 MESON_ARGS=		-Dxkb_dir="{{LOCALBASE}}/share/X11/xkb"
 			-Ddefault_font_path="{{fontlist:ts,}}"
-			-Dglamor=false
+			-Dglamor=true
 			-Dxcsecurity=true
 			-Ddtrace=false
 			-Dhal=false
@@ -127,6 +127,8 @@ VAR_OPSYS[netbsd]=	CPPFLAGS=-D_OPENBSD_SOURCE
 					-Dxorg=true
 					-Dlog_dir=/var/log
 					-Dsuid_wrapper=true
+					--buildtype debug
+
 [XORG].CONFIGURE_ARGS_OFF=		-Ddocs=false
 					-Ddevel-docs=false
 					-Dxorg=false
